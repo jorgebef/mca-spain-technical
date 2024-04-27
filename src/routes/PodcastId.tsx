@@ -1,7 +1,11 @@
+import { useParams } from "react-router-dom";
+
 export const PodcastId = () => {
+	let { podcastId } = useParams();
+
 	return (
 		<div>
-			<div>Podcast id page</div>
+			<div>{podcastId}</div>
 		</div>
 	);
 };
