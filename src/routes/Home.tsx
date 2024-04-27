@@ -4,7 +4,7 @@ import s from "./Home.module.css";
 import { Top100Result } from "../types/api";
 
 type HomeCtxProps = {
-	results: any[];
+	results: Top100Result[];
 	setResults: Dispatch<Top100Result[]>;
 };
 

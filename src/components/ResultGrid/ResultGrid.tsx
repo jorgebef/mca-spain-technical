@@ -21,6 +21,7 @@ export const ResultGrid = ({ query }: ResultsProps) => {
 
 	useEffect(() => {
 		if (error || isLoading || data === undefined) return;
+    console.log(data[0])
 
 		if (query !== "") {
 			const newResult = filterArray<Top100Result>(data, "title.label", query);
@@ -36,7 +37,7 @@ export const ResultGrid = ({ query }: ResultsProps) => {
 				<li key={res.id.attributes["im:id"] + i} className={s.cell}>
 					<Link to={`/podcast/${res.title.label}`}>
 						<div className={s.imgWrapper}>
-							<img src={res["im:image"][0].label} alt={res.title} />
+							<img src={res["im:image"][0].label} alt={res.title.label} />
 						</div>
 						<h4 className={s.title}>{res.title.label}</h4>
 						<span className={s.summary}>
