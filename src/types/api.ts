@@ -1,4 +1,5 @@
 export type Top100Result = {
+	id: { attributes: { "im:id": string }; label: string };
 	title: { label: string };
 	"im:artist": { label: string };
 	"im:image": { label: string }[];
