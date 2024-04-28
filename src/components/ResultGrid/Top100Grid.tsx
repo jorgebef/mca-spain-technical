@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import styles from "./Top100Grid.module.css";
-import { useHomeCtx } from "../../routes/Home";
+import { useHomeCtx } from "../../routes/Home/Home";
 import { useQuery } from "@tanstack/react-query";
 import { fetchTop100 } from "../../lib/api";
 import type { Top100Result } from "../../types/api";
@@ -19,6 +19,7 @@ export const Top100Grid = () => {
 		if (error || isLoading || data === undefined) return;
 		const newResult = filterArray<Top100Result>(data, "title.label", query);
 		setResults(newResult);
+		console.log(data);
 	}, [data, query]);
 
 	if (error) return <div>Error!!</div>;
@@ -28,15 +29,18 @@ export const Top100Grid = () => {
 
 	return (
 		<ul className={styles.container}>
-			{results.map((res, i) => (
-				<li key={res.id.attributes["im:id"] + i} className={styles.cell}>
-					<Link to={`/podcast/${res.id.attributes["im:id"]}`}>
+			{results.map((podcast, i) => (
+				<li key={podcast.id.attributes["im:id"] + i} className={styles.cell}>
+					<Link to={`/podcast/${podcast.id.attributes["im:id"]}`}>
 						<div className={styles.imgWrapper}>
-							<img src={res["im:image"][2].label} alt={res.title.label} />
+							<img
+								src={podcast["im:image"][2].label}
+								alt={podcast.title.label}
+							/>
 						</div>
-						<h4 className={styles.title}>{res.title.label}</h4>
+						<h4 className={styles.title}>{podcast.title.label}</h4>
 						<span className={styles.summary}>
-							Author: <b>{res["im:artist"].label}</b>
+							Author: <b>{podcast["im:artist"].label}</b>
 						</span>
 					</Link>
 				</li>

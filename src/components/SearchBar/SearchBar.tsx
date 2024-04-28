@@ -1,4 +1,4 @@
-import { useHomeCtx } from "../../routes/Home";
+import { useHomeCtx } from "../../routes/Home/Home";
 import s from "./SearchBar.module.css";
 
 export const SearchBar = () => {
