@@ -5,7 +5,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Home } from "./routes/Home.tsx";
 import { RootLayout } from "./layouts/RootLayout.tsx";
 import ErrorPage from "./routes/ErrorPage.tsx";
-import { PodcastId } from "./routes/PodcastId.tsx";
+import { PodcastTracks } from "./routes/PodcastTracks.tsx";
 import { PodcastLayout } from "./layouts/PodcastLayout.tsx";
 
 const router = createBrowserRouter([
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
 			{
 				path: "/podcast/:podcastId",
 				element: <PodcastLayout />,
-				children: [{ index: true, element: <PodcastId /> }],
+				children: [{ index: true, element: <PodcastTracks /> }],
 			},
 		],
 	},

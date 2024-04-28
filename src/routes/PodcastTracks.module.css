@@ -47,3 +47,11 @@ tr:nth-child(odd) {
 tr:last-child {
   border-bottom: none;
 }
+
+.date {
+  text-align: start;
+}
+
+.duration {
+  text-align: end;
+}

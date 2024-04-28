@@ -16,6 +16,8 @@ export const PodcastSidebar = ({ podcastId }: PodcastSidebarProps) => {
 	if (isLoading) return <div>Loading...</div>;
 	if (data === undefined) return <div className={styles.sidebar}>No data</div>;
 
+	// console.log(data)
+
 	return (
 		<div className={styles.sidebar}>
 			<img src={data.artworkUrl600} />

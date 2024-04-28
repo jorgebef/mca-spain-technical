@@ -1,10 +1,10 @@
 import { Link, useParams } from "react-router-dom";
-import styles from "./PodcastId.module.css";
+import styles from "./PodcastTracks.module.css";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
 import { fetchPodcastTracks } from "../lib/api";
+import { millisecondsToDuration, stringToDate } from "../lib/util";
 
-export const PodcastId = () => {
+export const PodcastTracks = () => {
 	const { podcastId = "" } = useParams();
 
 	const { data, error, isLoading } = useQuery({
@@ -12,14 +12,11 @@ export const PodcastId = () => {
 		queryFn: () => fetchPodcastTracks(podcastId),
 	});
 
-	useEffect(() => {
-		if (error || isLoading || data === undefined) return;
-		console.log(data);
-	}, [data]);
-
 	if (error) return <div>Error!!</div>;
 	if (isLoading) return <div>Loading...</div>;
 	if (data === undefined) return <div>No data</div>;
+
+	console.log(data);
 
 	return (
 		<div className={styles.container}>
@@ -27,15 +24,9 @@ export const PodcastId = () => {
 			<table>
 				<thead>
 					<tr>
-						<th>
-							<b>Title</b>
-						</th>
-						<th>
-							<b>Date</b>
-						</th>
-						<th>
-							<b>Duration</b>
-						</th>
+						<th>Title</th>
+						<th>Date</th>
+						<th className={styles.duration}>Duration</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -46,8 +37,10 @@ export const PodcastId = () => {
 									{track.trackName}
 								</Link>
 							</td>
-							{/* <td>{track.date}</td> */}
-							{/* <td>{track.duration}</td> */}
+							<td className={styles.date}>{stringToDate(track.releaseDate)}</td>
+							<td className={styles.duration}>
+								{millisecondsToDuration(track.trackTimeMillis)}
+							</td>
 						</tr>
 					))}
 				</tbody>
