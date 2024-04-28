@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import s from "./ResultGrid.module.css";
+import s from "./Top100Grid.module.css";
 import { HomeCtx } from "../../routes/Home";
 import { useQuery } from "@tanstack/react-query";
 import { fetchTop100 } from "../../lib/api";
@@ -21,14 +21,13 @@ export const Top100Grid = ({ query }: ResultsProps) => {
 
 	useEffect(() => {
 		if (error || isLoading || data === undefined) return;
-
-		if (query !== "") {
-			const newResult = filterArray<Top100Result>(data, "title.label", query);
-			setResults(newResult);
-		} else {
-			setResults(data);
-		}
+		const newResult = filterArray<Top100Result>(data, "title.label", query);
+		setResults(newResult);
 	}, [data, query]);
+
+	if (error) return <div>Error!!</div>;
+	if (isLoading) return <div>Loading...</div>;
+	if (data === undefined) return <div className={s.container}>No data</div>;
 
 	return (
 		<ul className={s.container}>
