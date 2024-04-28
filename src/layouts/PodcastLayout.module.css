@@ -3,30 +3,3 @@
   grid-template-columns: 1fr 2fr;
   gap: 5rem;
 }
-
-.sidebar {
-  position: sticky;
-  top: 3rem;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  background-color: #efefef;
-  padding: 2rem;
-}
-
-.sidebar img {
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-}
-
-.separator {
-  height: 1px;
-  background-color: rgb(var(--border-normal));
-}
-
-.info {
-  display: flex;
-  flex-direction: column;
-}
