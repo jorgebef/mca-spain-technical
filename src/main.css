@@ -2,11 +2,16 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 li {
   list-style-type: none;
+}
+a {
+  text-decoration: none;
 }
 
 :root {
@@ -67,7 +72,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #EAEAEA;
+  background-color: #eaeaea;
   cursor: pointer;
   transition: border-color 0.25s;
 }
