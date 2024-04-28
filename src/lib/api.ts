@@ -1,4 +1,5 @@
 import { Top100Result } from "../types/api";
+import { sleep } from "./util";
 
 // Función para fetchear el top 100 usado en la home page
 // devuelve una promise para poder usarse directamente en
@@ -16,5 +17,18 @@ export const fetchTop100 = () => {
 		})
 		.then((r) => r.feed.entry);
 
+	return promise;
+};
+
+export const fetchPodcastById = async (podcastId: string | undefined) => {
+	await sleep(2000);
+	const promise:Promise<any> = fetch(`https://itunes.apple.com/lookup?id=${podcastId}`)
+		.then((res) => {
+			if (!res.ok) {
+				throw new Error("Error fetching!!");
+			}
+			return res.json();
+		})
+		.then((r) => r.results[0]);
 	return promise;
 };

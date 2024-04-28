@@ -16,9 +16,9 @@ const router = createBrowserRouter([
 		children: [
 			{ index: true, element: <Home /> },
 			{
-				path: "/podcast",
+				path: "/podcast/:podcastId",
 				element: <PodcastLayout />,
-				children: [{ path: "/podcast/:podcastId", element: <PodcastId /> }],
+				children: [{ index: true, element: <PodcastId /> }],
 			},
 		],
 	},

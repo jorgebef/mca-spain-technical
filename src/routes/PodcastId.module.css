@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.episodeCount {
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: 1px solid rgb(var(--border-normal));
+  padding: 0.5rem 1rem;
+}
+
+table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(var(--border-normal));
+  padding: 0.5rem 1rem;
+}
+
+tr {
+  display: grid;
+  text-align: left;
+  grid-template-columns: 4fr 1fr 1fr;
+  padding: 0.5rem;
+}
+
+thead {
+  border-bottom: 1px solid rgb(var(--border-normal));
+}
+
+tr {
+  border: solid #bababa;
+  border-width: 1px 0;
+}
+
+tr:nth-child(even) {
+  background-color: #f3f3f3;
+  border-top: none;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff;
+  border-top: none;
+}
+
+tr:last-child {
+  border-bottom: none;
+}
