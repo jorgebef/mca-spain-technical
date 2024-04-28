@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border: 1px solid rgb(var(--border-normal));
+  height: min-content;
+  padding: 1rem;
+}
+
+.info h1 {
+  font-size: 1.75rem;
+}
+
+.info p {
+  font-style: italic;
+  white-space: pre-line;
+}
