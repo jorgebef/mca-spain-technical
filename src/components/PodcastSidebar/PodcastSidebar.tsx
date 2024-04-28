@@ -7,7 +7,7 @@ import { Top100Result } from "../../types/api";
 export const PodcastSidebar = () => {
 	const { podcastId } = useParams();
 
-	const { data, error, isLoading } = useQuery({
+	const { data, isError, isPending } = useQuery({
 		queryKey: ["top100", podcastId],
 		queryFn: () =>
 			fetchTop100().then((r) =>
@@ -18,8 +18,8 @@ export const PodcastSidebar = () => {
 			),
 	});
 
-	if (error) return <div>Error!!</div>;
-	if (isLoading) return <div>Loading...</div>;
+	if (isError) return <div>Error!!</div>;
+	if (isPending) return <div>Loading...</div>;
 	if (data === undefined) return <div className={styles.sidebar}>No data</div>;
 
 	return (

@@ -10,20 +10,21 @@ import { Link } from "react-router-dom";
 export const Top100Grid = () => {
 	const { results, setResults, query } = useHomeCtx();
 
-	const { data, error, isLoading } = useQuery({
+	const { data, isError, isPending } = useQuery({
 		queryKey: ["top100"],
 		queryFn: () => fetchTop100(),
 	});
 
 	useEffect(() => {
-		if (error || isLoading || data === undefined) return;
+		if (isError || isPending || data === undefined) return;
 		const newResult = filterArray<Top100Result>(data, "title.label", query);
 		setResults(newResult);
 		console.log(data);
 	}, [data, query]);
 
-	if (error) return <div>Error!!</div>;
-	if (isLoading) return <div>Loading...</div>;
+	if (isError) return <div>Error!!</div>;
+	if (isPending) return <div>Loading...</div>;
+
 	if (data === undefined)
 		return <div className={styles.container}>No data</div>;
 

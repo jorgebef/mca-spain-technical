@@ -8,7 +8,7 @@ import { useEffect } from "react";
 export const PodcastTracks = () => {
 	const { podcastId = "" } = useParams();
 
-	const { data, error, isLoading } = useQuery({
+	const { data, isError, isPending } = useQuery({
 		queryKey: ["trackList", podcastId],
 		queryFn: () => fetchPodcastTracks(podcastId),
 	});
@@ -19,8 +19,8 @@ export const PodcastTracks = () => {
 		console.log(data);
 	}, [data]);
 
-	if (error) return <div>Error!!</div>;
-	if (isLoading) return <div>Loading...</div>;
+	if (isError) return <div>Error!!</div>;
+	if (isPending) return <div>Loading...</div>;
 	if (data === undefined) return <div>No data</div>;
 
 	return (

@@ -12,21 +12,21 @@ export const PodcastEpisode = () => {
 		undefined,
 	);
 
-	const { data, error, isLoading } = useQuery({
+	const { data, isError, isPending } = useQuery({
 		queryKey: ["trackList", podcastId],
 		queryFn: () => fetchPodcastTracks(podcastId),
 	});
 
 	useEffect(() => {
-		if (data === undefined || error || isLoading) return;
+		if (data === undefined || isError || isPending) return;
 		const selectedEpisode = data.find(
 			(e: TrackResult) => String(e.trackId) === episodeId,
 		);
 		setEpisodeData(selectedEpisode);
-	}, [error, isLoading, data]);
+	}, [isError, isPending, data]);
 
-	if (error) return <div>Error!!</div>;
-	if (isLoading) return <div>Loading...</div>;
+	if (isError) return <div>Error!!</div>;
+	if (isPending) return <div>Loading...</div>;
 	if (episodeData === undefined || data === undefined)
 		return <div>No data</div>;
 
