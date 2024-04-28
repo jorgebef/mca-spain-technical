@@ -11,7 +11,6 @@ const queryClient = new QueryClient({
 		queries: {
 			// antiguo cacheTime
 			gcTime: 24 * 3600 * 1000,
-			// gcTime: 0,
 		},
 	},
 });
