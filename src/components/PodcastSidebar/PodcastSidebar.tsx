@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchTop100 } from "../../lib/api";
 import styles from "./PodcastSidebar.module.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Top100Result } from "../../types/api";
 
 export const PodcastSidebar = () => {
@@ -24,12 +24,14 @@ export const PodcastSidebar = () => {
 
 	return (
 		<div className={styles.sidebar}>
-			<img src={data["im:image"][2].label} />
+			<Link to={`/podcast/${podcastId}`}>
+				<img src={data["im:image"][2].label} />
+			</Link>
 			<div className={styles.separator}></div>
-			<div className={styles.info}>
+			<Link to={`/podcast/${podcastId}`} className={styles.info}>
 				<b>{data.title.label}</b>
 				<i>by {data["im:artist"].label}</i>
-			</div>
+			</Link>
 			<div className={styles.separator}></div>
 			<div className={styles.info}>
 				<b>Description:</b>

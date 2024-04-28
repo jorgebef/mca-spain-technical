@@ -21,6 +21,11 @@
 
 .info {
   display: flex;
+  color: black;
+  text-decoration: none;
   flex-direction: column;
   word-break: break-word;
+}
+.info:hover {
+  color: black;
 }
