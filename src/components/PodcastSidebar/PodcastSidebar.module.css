@@ -1,8 +1,7 @@
 .sidebar {
-  position: sticky;
-  top: 3rem;
   height: fit-content;
   display: flex;
+  width: 100%;
   flex-direction: column;
   gap: 2rem;
   background-color: #efefef;
@@ -23,4 +22,5 @@
 .info {
   display: flex;
   flex-direction: column;
+  word-break: break-word;
 }
