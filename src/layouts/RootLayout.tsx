@@ -1,5 +1,5 @@
 import style from "./Layout.module.css";
-import { Topbar } from "../components/Topbar/Topbar";
+import { Topbar } from "@/components/Topbar/Topbar";
 
 import { QueryClient } from "@tanstack/react-query";
 import { Outlet } from "react-router-dom";

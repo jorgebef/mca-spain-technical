@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchTop100 } from "../../lib/api";
+import { fetchTop100 } from "@/lib/api";
 import styles from "./PodcastSidebar.module.css";
 import { Link, useParams } from "react-router-dom";
-import { Top100Result } from "../../types/api";
+import { Top100Result } from "@/types/api";
 
 export const PodcastSidebar = () => {
 	const { podcastId } = useParams();

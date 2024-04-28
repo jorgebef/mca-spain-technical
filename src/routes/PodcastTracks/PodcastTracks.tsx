@@ -1,9 +1,8 @@
 import { Link, useParams } from "react-router-dom";
 import styles from "./PodcastTracks.module.css";
 import { useQuery } from "@tanstack/react-query";
-import { fetchPodcastTracks } from "../../lib/api";
-import { millisecondsToDuration, stringToDate } from "../../lib/util";
-import { useEffect } from "react";
+import { fetchPodcastTracks } from "@/lib/api";
+import { millisecondsToDuration, stringToDate } from "@/lib/util";
 
 export const PodcastTracks = () => {
 	const { podcastId = "" } = useParams();
@@ -12,12 +11,6 @@ export const PodcastTracks = () => {
 		queryKey: ["trackList", podcastId],
 		queryFn: () => fetchPodcastTracks(podcastId),
 	});
-
-	useEffect(() => {
-		if (!data) return;
-		console.log("Tracks: ");
-		console.log(data);
-	}, [data]);
 
 	if (isError) return <div>Error!!</div>;
 	if (isPending) return <div>Loading...</div>;

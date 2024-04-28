@@ -19,6 +19,9 @@ Dado que lo que se pide es una SPA con diferentes páginas y navegación en el c
 #### CSS Modules
 Para MVP rápidos usaría TailwindCSS si de mí dependiera la decisión, pero entiendo que es algo posiblemente controversial. Por lo tanto, para escribir CSS, me inclino por CSS Modules, lo cual mantiene todas las ventajas de CSS pero sumando las ventajas que supone poder separar los estilos en componentes, que son los elementos principales de construcción en React.
 
+#### React Router
+Para implementar client side routing, he decidido usar React Router, el cual he usado en otros proyectos y permite una fácil implementación de rutas anidadas, usando componentes comunes a varias rutas como layouts y pasando params.
+
 #### React Query
 Paquete de manejo de estado asíncrono y fetching que permite manipular muy fácilmente y de forma granular los datos que trabajamos y que fetcheamos de la API del ejercicio.
 
@@ -33,10 +36,10 @@ Para ejecutar en entorno desarrollo, simplemente han de lanzarse 2 comandos:
 - `cd <path_to_project>`
 - `pnpm i`
 - `pnpm run dev`
-Se lanzará en `localhost:5173` que es por defecto para Vite en entorno de desarrollo.
+- Se lanzará en `localhost:5173` que es por defecto para Vite en entorno de desarrollo.
 
 Para el build y ejecutar en producción, se pueden seguir los siguientes pasos una vez clonado el repositorio localmente:
 
 - `pnpm run build`
 - `pnpm run preview`
-Se lanzará en `localhost:4173` que es por defecto para el preview de producción de Vite.
+- Se lanzará en `localhost:4173` que es por defecto para el preview de producción de Vite.

@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import { fetchPodcastTracks } from "../../lib/api";
+import { fetchPodcastTracks } from "@/lib/api";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import { TrackResult } from "../../types/api";
+import { TrackResult } from "@/types/api";
 import styles from "./PodcastEpisode.module.css";
 
 export const PodcastEpisode = () => {

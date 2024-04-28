@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import styles from "./Top100Grid.module.css";
-import { useHomeCtx } from "../../routes/Home/Home";
+import { useHomeCtx } from "@/routes/Home/Home";
 import { useQuery } from "@tanstack/react-query";
-import { fetchTop100 } from "../../lib/api";
+import { fetchTop100 } from "@/lib/api";
 import type { Top100Result } from "../../types/api";
-import { filterArray } from "../../lib/util";
+import { filterArray } from "@/lib/util";
 import { Link } from "react-router-dom";
 
 export const Top100Grid = () => {
@@ -19,7 +19,6 @@ export const Top100Grid = () => {
 		if (isError || isPending || data === undefined) return;
 		const newResult = filterArray<Top100Result>(data, "title.label", query);
 		setResults(newResult);
-		console.log(data);
 	}, [data, query]);
 
 	if (isError) return <div>Error!!</div>;

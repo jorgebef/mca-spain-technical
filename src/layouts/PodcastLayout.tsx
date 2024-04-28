@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import styles from "./PodcastLayout.module.css";
-import { PodcastSidebar } from "../components/PodcastSidebar/PodcastSidebar";
+import { PodcastSidebar } from "@/components/PodcastSidebar/PodcastSidebar";
 
 export const PodcastLayout = () => {
 	return (
