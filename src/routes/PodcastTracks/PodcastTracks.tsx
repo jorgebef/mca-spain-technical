@@ -25,7 +25,7 @@ export const PodcastTracks = () => {
 
 	return (
 		<div className={styles.container}>
-			<div className={styles.episodeCount}>Episodes: {data.resultCount}</div>
+			<div className={styles.episodeCount}>Episodes: {data.length}</div>
 			<table>
 				<thead>
 					<tr>
@@ -35,7 +35,7 @@ export const PodcastTracks = () => {
 					</tr>
 				</thead>
 				<tbody>
-					{data.results.map((track: any, i: number) => (
+					{data.map((track: any, i: number) => (
 						<tr key={track.trackName + i}>
 							<td>
 								<Link to={`/podcast/${podcastId}/episode/${track.trackId}`}>
