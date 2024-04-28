@@ -15,8 +15,7 @@ describe("Renders main page correctly", async () => {
 				<Home />
 			</QueryClientProvider>,
 		);
-		// const podcaster = screen.queryByText("filter");
-    expect(true).toBeTruthy()
-		// expect(podcaster).not.toBeNull();
+		const search = screen.queryByPlaceholderText("Filter podcasts...");
+		expect(search).not.toBeNull();
 	});
 });
