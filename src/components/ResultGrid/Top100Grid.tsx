@@ -11,12 +11,12 @@ interface ResultsProps {
 	query: string;
 }
 
-export const ResultGrid = ({ query }: ResultsProps) => {
+export const Top100Grid = ({ query }: ResultsProps) => {
 	const { results, setResults } = useContext(HomeCtx);
 
 	const { data, error, isLoading } = useQuery({
 		queryKey: ["top100"],
-		queryFn: fetchTop100,
+		queryFn: () => fetchTop100(),
 	});
 
 	useEffect(() => {

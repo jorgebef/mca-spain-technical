@@ -1,11 +1,11 @@
 import { Dispatch, createContext, useState } from "react";
-import { ResultGrid } from "../components/ResultGrid/ResultGrid";
+import { Top100Grid } from "../components/ResultGrid/Top100Grid";
 import s from "./Home.module.css";
 import { Top100Result } from "../types/api";
 
 type HomeCtxProps = {
-	results: Top100Result[];
-	setResults: Dispatch<Top100Result[]>;
+	results: Array<Top100Result>;
+	setResults: Dispatch<Array<Top100Result>>;
 };
 
 export const HomeCtx = createContext({} as HomeCtxProps);
@@ -26,7 +26,7 @@ export const Home = () => {
 				/>
 			</div>
 
-			<ResultGrid query={query} />
+			<Top100Grid query={query} />
 		</HomeCtx.Provider>
 	);
 };
