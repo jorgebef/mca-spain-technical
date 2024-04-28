@@ -32,7 +32,7 @@ export const Top100Grid = () => {
 				<li key={res.id.attributes["im:id"] + i} className={styles.cell}>
 					<Link to={`/podcast/${res.id.attributes["im:id"]}`}>
 						<div className={styles.imgWrapper}>
-							<img src={res["im:image"][0].label} alt={res.title.label} />
+							<img src={res["im:image"][2].label} alt={res.title.label} />
 						</div>
 						<h4 className={styles.title}>{res.title.label}</h4>
 						<span className={styles.summary}>
