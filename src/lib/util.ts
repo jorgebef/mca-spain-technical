@@ -32,3 +32,29 @@ export const filterArray = <T extends object>(
 	});
 	return filteredResult;
 };
+
+export const stringToDate = (input: string) => {
+	const result = new Date(input).toLocaleDateString(undefined, {
+		day: "numeric",
+		month: "numeric",
+		year: "numeric",
+	});
+	return result;
+};
+
+// Conversión de tiempo en Milisegundos proveniente de la API
+// a un formato legible para personas
+// https://stackoverflow.com/questions/3733227/javascript-seconds-to-minutes-and-seconds
+export const millisecondsToDuration = (timeInMs: string) => {
+	const timeInSec = Number(timeInMs) / 1000;
+	// const hours = Math.floor(timeInSec / 3600);
+	const minutes = Math.floor(timeInSec / 60);
+	const seconds = timeInSec - minutes * 60;
+
+	function padTime(string: number) {
+		return (new Array(2 + 1).join("0") + string).slice(-2);
+	}
+
+	const result = `${padTime(minutes)}:${padTime(seconds)}`;
+	return result;
+};
