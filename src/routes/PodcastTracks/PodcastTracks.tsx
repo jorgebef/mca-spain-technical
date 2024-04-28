@@ -1,8 +1,9 @@
 import { Link, useParams } from "react-router-dom";
 import styles from "./PodcastTracks.module.css";
 import { useQuery } from "@tanstack/react-query";
-import { fetchPodcastTracks } from "../lib/api";
-import { millisecondsToDuration, stringToDate } from "../lib/util";
+import { fetchPodcastTracks } from "../../lib/api";
+import { millisecondsToDuration, stringToDate } from "../../lib/util";
+import { useEffect } from "react";
 
 export const PodcastTracks = () => {
 	const { podcastId = "" } = useParams();
@@ -12,11 +13,15 @@ export const PodcastTracks = () => {
 		queryFn: () => fetchPodcastTracks(podcastId),
 	});
 
+	useEffect(() => {
+		if (!data) return;
+		console.log("Tracks: ");
+		console.log(data);
+	}, [data]);
+
 	if (error) return <div>Error!!</div>;
 	if (isLoading) return <div>Loading...</div>;
 	if (data === undefined) return <div>No data</div>;
-
-	console.log(data);
 
 	return (
 		<div className={styles.container}>
@@ -33,7 +38,7 @@ export const PodcastTracks = () => {
 					{data.results.map((track: any, i: number) => (
 						<tr key={track.trackName + i}>
 							<td>
-								<Link to={`/podcast/${podcastId}/episode/${track.title}`}>
+								<Link to={`/podcast/${podcastId}/episode/${track.trackId}`}>
 									{track.trackName}
 								</Link>
 							</td>

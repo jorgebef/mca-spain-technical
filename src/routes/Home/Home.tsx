@@ -1,7 +1,7 @@
 import { Dispatch, createContext, useContext, useState } from "react";
-import { Top100Grid } from "../components/ResultGrid/Top100Grid";
-import { Top100Result } from "../types/api";
-import { SearchBar } from "../components/SearchBar/SearchBar";
+import { Top100Grid } from "../../components/ResultGrid/Top100Grid";
+import { Top100Result } from "../../types/api";
+import { SearchBar } from "../../components/SearchBar/SearchBar";
 
 type HomeCtxProps = {
 	results: Array<Top100Result>;
