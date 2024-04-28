@@ -1,22 +1,26 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchPodcastById } from "../../lib/api";
 import styles from "./PodcastSidebar.module.css";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-type PodcastSidebarProps = {
-	podcastId: string;
-};
+export const PodcastSidebar = () => {
+	const { podcastId } = useParams();
 
-export const PodcastSidebar = ({ podcastId }: PodcastSidebarProps) => {
 	const { data, error, isLoading } = useQuery({
 		queryKey: ["podcastId", podcastId],
 		queryFn: () => fetchPodcastById(podcastId),
 	});
 
+	useEffect(() => {
+		if (!data) return;
+		console.log("Podcast: ");
+		console.log(data);
+	}, [data]);
+
 	if (error) return <div>Error!!</div>;
 	if (isLoading) return <div>Loading...</div>;
 	if (data === undefined) return <div className={styles.sidebar}>No data</div>;
-
-	// console.log(data)
 
 	return (
 		<div className={styles.sidebar}>
